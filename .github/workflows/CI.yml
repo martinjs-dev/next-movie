@@ -28,8 +28,9 @@ jobs:
       - name: Setup NodeJS
         uses: actions/setup-node@v3
         with:
-          node-version: "latest"
-
+          node-version:  '18'
+          check-latest: true
+          
       - name: Install dependencies
         run: |
           cd next-movie
