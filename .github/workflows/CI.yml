@@ -58,9 +58,15 @@ jobs:
         run: |
           cd next-movie
 
+          # Lunch Docker Compose
           docker-compose -f docker-compose.yml build
           docker-compose -f docker-compose.yml up -d
 
+          #  Wait for the server to start
+          sleep 10
+          
+          # Test server with curl
           curl -f http://localhost:3000
 
+          # Stop Docker Compose
           docker-compose -f docker-compose.yml down
