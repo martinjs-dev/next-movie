@@ -31,13 +31,19 @@ jobs:
           node-version: "latest"
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd next-movie
+          npm install
 
-      - name: Run lint (déscommenter si nécessaire)
-        run: npm run lint
+      - name: Run lint
+        run: |
+          cd next-movie
+          npm run lint
                 
       - name: Run tests
-        run: npm test 
+        run: |
+          cd next-movie
+          npm test 
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
@@ -49,7 +55,11 @@ jobs:
 
       - name: Build and Test with Docker Compose
         run: |
+          cd next-movie
+
           docker-compose -f docker-compose.yml build
           docker-compose -f docker-compose.yml up -d
+
           curl -f http://localhost:3000
+
           docker-compose -f docker-compose.yml down
