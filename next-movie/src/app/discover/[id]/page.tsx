@@ -1,4 +1,5 @@
 "use client";
+
 import Card from '@/componets/Card';
 import Footer from '@/componets/Footer';
 import Loading from '@/componets/Loading';
@@ -15,7 +16,7 @@ export interface Imovie {
 
 }
 
-const Discover = () => {
+const Discover = () => { 
 
   const [title, setTitle] = useState("");
   const [movies, setMovies] = useState([]);
@@ -29,7 +30,7 @@ const Discover = () => {
   const params = useParams();
   const searchParams = useSearchParams();
 
-  useEffect(() => {
+  useEffect(() => { 
     mainRef?.current?.scrollTo({
       top:0,
       left:0,
@@ -127,14 +128,6 @@ const Discover = () => {
       <div className='pd-20'>
       <Footer />
       </div>
-
-
-
-
-
-
-
-
 
       </main>
   );

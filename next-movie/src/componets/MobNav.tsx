@@ -15,6 +15,7 @@ interface Igenre {
     name: string;
 }
 
+
 const MobNav = ({input , setInput, handleSubmit}: propsType) => {
     const [isOpen, setIsOpen] = useState(false);
     const [genres, setGenres] = useState([]);

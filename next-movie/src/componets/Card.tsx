@@ -15,7 +15,7 @@ interface propsType {
 const Card = ({img,id, title,releaseDate }: propsType) => {
 
     const [loaded, setLoaded] = useState(false);
-    const [error, setError] = useState(false);
+    const [error, setError]   = useState(false);
   return (
     <div className='group bg-primary h-[450px] md:h-[335px] w-[100%]'>
         {!loaded && !error && <CardSkeleton/>}
