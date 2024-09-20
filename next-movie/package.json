@@ -10,7 +10,12 @@
     "test": "jest --passWithNoTests"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.6.3",
     "next": "14.2.11",
+    "next-auth": "^4.24.7",
+    "nodemailer": "^6.9.15",
     "react": "^18",
     "react-dom": "^18"
   },
@@ -18,7 +23,11 @@
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/next-auth": "^3.15.0",
     "@types/node": "^20",
+    "@types/nodemailer": "^6.4.16",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.4.20",
