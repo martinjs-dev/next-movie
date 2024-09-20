@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { relative } from 'path';
+
 import React, { useState } from 'react';
 import CardSkeleton from './CardSkeleton';
 import { BASE_IMG_URL } from '@/utils/Const';

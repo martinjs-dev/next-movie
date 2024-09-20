@@ -1,5 +1,6 @@
 "use client";
 import Card from '@/componets/Card';
+import Footer from '@/componets/Footer';
 import Loading from '@/componets/Loading';
 import { BASE_URL } from '@/utils/Const';
 import axios from 'axios';
@@ -82,7 +83,7 @@ const Discover = () => {
     }else{
       page = `page=${currentPage+1}`
     }
-    router.push(`/discover/${discover}${page}`);
+    router.push(`/discover/${discover}?${page}`);
   };
 
   return (
@@ -105,6 +106,36 @@ const Discover = () => {
             />
           )) }
       </div>
+
+      <div className="flex justify-center gap-16 py-6 pt-16">
+        <button
+        onClick={() => handlePageChange("prev")}
+        className={`bg-purple-900 p-2 px-8 hover:bg-purple-950 ${currentPage === 1 && "hidden"}`}>
+          Prev
+
+        </button>
+
+
+        <button
+        onClick={() => handlePageChange("next")}
+        className={`bg-purple-900 p-2 px-8 hover:bg-purple-950 ${currentPage === totalPage && "hidden"}`}>
+          Next
+
+        </button>
+
+      </div>
+      <div className='pd-20'>
+      <Footer />
+      </div>
+
+
+
+
+
+
+
+
+
       </main>
   );
 };
