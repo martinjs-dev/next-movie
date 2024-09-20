@@ -97,13 +97,13 @@ const MovieDetails = () => {
 
     const [movie, setMovie] = useState<Root>();
     const [showPlayer, setShowPlayer] = useState(false);
-    const [search, setSearch] = useState("");
+    const [trailer, setTrailer] = useState("");
   
     
   
     const router = useRouter();
     const params = useParams();
-    const searchParams = useSearchParams();
+    
 
     const mainRef = useRef<HTMLDivElement>(null);
   
@@ -173,7 +173,7 @@ const MovieDetails = () => {
                     <div>Release: {movie?.release_date}</div>
                     <div>Runtime: {movie?.runtime} MIN.</div>
                    {/* je dois placer une etoile pour le vote  */}
-                    <div>Rating: {movie?.vote_average}  </div> 
+                    <div>Rating: {movie?.vote_average} ⭐ </div> 
 
                 </div>
                 <div className="pt-14 space-y-2 pr-4">
@@ -229,7 +229,4 @@ const MovieDetails = () => {
 
     };
     export default MovieDetails;
-function setTrailer(trailerURL: string) {
-    throw new Error("Function not implemented.");
-}
 
