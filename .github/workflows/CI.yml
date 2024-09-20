@@ -63,7 +63,7 @@ jobs:
           docker-compose -f docker-compose.yml up -d
 
           #  Wait for the server to start
-          sleep 10
+          sleep 15
           
           # Test server with curl
           curl -f http://localhost:3000
