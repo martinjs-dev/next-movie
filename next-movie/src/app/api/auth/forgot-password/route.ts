@@ -13,7 +13,7 @@ export const POST = async (req: Request) => {
     return NextResponse.json({ error: "Utilisateur introuvable" }, { status: 404 })
   }
 
-  const token = jwt.sign({ userId: user._id }, process.env.PASSWORD_RESET_SECRET as string, { expiresIn: "1h" })
+  const token = jwt.sign({ userId: user._id }, process.env.PASSWORD_RESET_SECRET as string, { expiresIn: "24h" })
 
   const transporter = nodemailer.createTransport({
     service: "gmail",

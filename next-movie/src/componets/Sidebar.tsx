@@ -17,9 +17,9 @@ const Sidebar = () => {
         id: string;
         name: string;
     }
-
+console.log(process.env.NEXT_PUBLIC_TMDB_API_KEY)
     useEffect(() => {
-        axios.get(`${BASE_URL}/genre/movie/list?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US`).then(({data}) => {
+        axios.get(`${BASE_URL}/genre/movie/list?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=en-US`).then(({data}) => {
           setGenres(data.genres)
           console.log("sidebar:",data.genres);
         }
@@ -28,10 +28,14 @@ const Sidebar = () => {
 
     useEffect(()=> {
       if (searchParams.get("genre")){
-        setSelectedGenre(searchParams.get("genre")?.toString()!);
+        const genre = "" + searchParams.get("genre")
+
+        // const genre = "" + searchParams.get("genre")?.toString()!
+        setSelectedGenre(genre);
         return;
       }
-      setSelectedGenre(params.id.toString())
+      const genre = "" + params.id
+      setSelectedGenre(genre)
     }, [params.id]);
 
   return (<div className='bg-primary px-10 max-h-[calc(100vh-77px)] pb-6 overflow-y-scroll scollbar-thin scrollbar-thumb-[#22222a]

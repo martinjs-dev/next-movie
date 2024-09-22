@@ -41,7 +41,7 @@ setTitle(`${genre} Movies`);
 
     axios.get(`${BASE_URL}/discover/movie`, {
       params: {
-        api_key: process.env.NEXT_PUBLIC_API_KEY,
+        api_key: process.env.NEXT_PUBLIC_TMDB_API_KEY,
         with_genres:id,
         page,
       },

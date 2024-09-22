@@ -63,7 +63,7 @@ const Discover = () => {
 
     axios.get(`${BASE_URL}/movie/${id}`, {
       params: {
-        api_key: process.env.NEXT_PUBLIC_API_KEY,
+        api_key: process.env.NEXT_PUBLIC_TMDB_API_KEY,
         page,
       },
     }).then((response)=> {

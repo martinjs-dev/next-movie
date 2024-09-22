@@ -8,7 +8,7 @@ interface IUser {
   isAdmin: boolean
   resetPasswordToken?: string
   resetPasswordExpires?: Date
-  favMovies?: Array
+  favMovies?: Array<string>
 }
 
 const UserSchema = new Schema<IUser>({
@@ -19,7 +19,7 @@ const UserSchema = new Schema<IUser>({
   isAdmin: { type: Boolean, default: false },
   resetPasswordToken: { type: String },
   resetPasswordExpires: { type: Date },
-  favMovies: { type: Array },
+  favMovies: { type: [String], default: [] },
 })
 
 const User = models.User || model<IUser>("User", UserSchema)

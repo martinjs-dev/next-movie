@@ -6,7 +6,11 @@ import dbConnect from "../../../../lib/mongodb"
 export const GET = async (req: Request) => {
   await dbConnect()
 
-  const { token } = new URL(req.url).searchParams
+  const token = new URL(req.url).searchParams.get('token')
+
+  if (!token) {
+    return NextResponse.json({ error: "Token manquant" }, { status: 400 })
+  }
 
   try {
     const { userId } = jwt.verify(token, process.env.EMAIL_VERIFICATION_SECRET as string) as { userId: string }

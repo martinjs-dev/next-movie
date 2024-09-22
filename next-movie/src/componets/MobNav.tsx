@@ -25,7 +25,7 @@ const MobNav = ({input , setInput, handleSubmit}: propsType) => {
     const params = useParams();
 
     useEffect(() => {
-        axios.get(`${BASE_URL}/genre/movie/list?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en_Us`).then(({ data }) => {
+        axios.get(`${BASE_URL}/genre/movie/list?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=en_Us`).then(({ data }) => {
             console.log(data.genres);
             setGenres(data.genres)
 
@@ -38,8 +38,8 @@ const MobNav = ({input , setInput, handleSubmit}: propsType) => {
             setSelectedGenre(searchParams.get("genre")!)
             return;
         }
-
-    setSelectedGenre(params.id.toString());
+    const genre = "" + params.id
+    setSelectedGenre(genre);
     }, [params.id, searchParams]);
 
   return (<>

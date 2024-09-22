@@ -110,7 +110,7 @@ const MovieDetails = () => {
   
     useEffect(() => {
  
-      axios.get(`https://api.themoviedb.org/3/movie/${params.id}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&append_to_response=video`,)
+      axios.get(`https://api.themoviedb.org/3/movie/${params.id}?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&append_to_response=video`,)
       .then((res) => {
         console.log(res.data);
         setMovie(res.data);

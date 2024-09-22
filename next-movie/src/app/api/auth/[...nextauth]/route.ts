@@ -30,6 +30,7 @@ export const authOptions: AuthOptions = {
       async authorize(credentials) {
         await dbConnect()
         const user = await User.findOne({ email: credentials?.email })
+        console.log(user)
         if (!user) {
           throw new Error("Email non trouvé")
         }
@@ -51,14 +52,38 @@ export const authOptions: AuthOptions = {
     error: "/auth/error",
   },
   callbacks: {
+    // Enregistre l'utilisateur dans la base de données lors de la première connexion
+    async signIn({ user, account, profile }) {
+      await dbConnect()
+
+      console.log("OAuth User:", user)      // Vérifie ce qui est renvoyé ici
+      console.log("OAuth Account:", account) // Vérifie ce qui est renvoyé ici
+      console.log("OAuth Profile:", profile) // Vérifie ce qui est renvoyé ici
+  
+
+      const existingUser = await User.findOne({ email: user.email })
+      if (!existingUser) {
+        const userr = new User({
+          name: user.name,
+          email: user.email,
+          emailVerified: true, 
+        })
+        await userr.save()
+      }
+      return true 
+    },
+
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id
       }
       return token
     },
+
     async session({ session, token }) {
-      session.user.id = token.id
+      if (session.user) {
+        session.user.id = token.id as string
+      }
       return session
     },
   },

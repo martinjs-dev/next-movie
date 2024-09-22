@@ -13,7 +13,7 @@ export default function VerifyEmailPage() {
       if (!token) return
 
       const res = await fetch(`/api/auth/verify-email?token=${token}`)
-      const data = await res.json()
+      // const data = await res.json()
 
       if (res.ok) {
         setMessage('Votre email a été vérifié avec succès.')
@@ -26,9 +26,13 @@ export default function VerifyEmailPage() {
   }, [token])
 
   return (
-    <div>p
-      <h1>Vérification de l'email</h1>
-      <p>{message}</p>
+    <div className="flex items-center justify-center min-h-screen p-6 bg-gray-100">
+      <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-8">
+        <h2 className="text-3xl font-bold mb-6 text-purple-600">Vérification de l&apos;email</h2>
+        <p className={`text-lg font-semibold ${message.includes('succès') ? 'text-green-500' : 'text-red-500'}`}>
+          {message}
+        </p>
+      </div>
     </div>
   )
 }
