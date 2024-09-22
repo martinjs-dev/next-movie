@@ -24,7 +24,7 @@ console.log(process.env.NEXT_PUBLIC_TMDB_API_KEY)
           console.log("sidebar:",data.genres);
         }
     );
-    }, []);
+    }, [searchParams]);
 
     useEffect(()=> {
       if (searchParams.get("genre")){
