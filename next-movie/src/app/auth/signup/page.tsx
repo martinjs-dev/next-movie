@@ -98,7 +98,7 @@ export default function SignUpPage() {
   return (
     <div className="flex items-center justify-center min-h-screen p-6 bg-gray-100">
       <>
-        <button>Vérifier l'e-mail</button>
+        <button>Vérifier l&apos;e-mail</button>
         <ToastContainer />
       </>
       <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-8">
@@ -185,7 +185,7 @@ export default function SignUpPage() {
             type="submit"
             className="w-full bg-purple-600 text-white py-2 px-4 rounded-md hover:bg-orange-600 transition duration-200"
           >
-            S'inscrire
+            S&apos;inscrire
           </button>
         </form>
 

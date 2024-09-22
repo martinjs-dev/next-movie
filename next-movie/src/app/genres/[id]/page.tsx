@@ -5,7 +5,7 @@ import Footer from '@/componets/Footer';
 import Loading from '@/componets/Loading';
 import { BASE_URL } from '@/utils/Const';
 import axios from 'axios';
-import { error } from 'console';
+// import { error } from 'console';
 // import { useRouter } from 'next/dist/client/router';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
 

@@ -3,7 +3,7 @@
 import Loading from "@/componets/Loading";
 import { BASE_IMG_URL } from "@/utils/Const";
 import axios from "axios";
-import { useParams, useRouter, useSearchParams,  } from "next/navigation";
+import { useParams, useRouter} from "next/navigation";
 import React, { useEffect, useRef, useState } from "react"
 
 import { IoMdClose } from "react-icons/io";
