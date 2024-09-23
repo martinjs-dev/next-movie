@@ -56,7 +56,7 @@ jobs:
 
       - name: Build and Test with Docker Compose
         run: |
-          # cd next-movie
+          cd next-movie
 
           # Lunch Docker Compose
           docker-compose -f docker-compose.yml build
