@@ -24,12 +24,12 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-gray-800 text-white py-4 shadow-lg">
       <div className="container mx-auto flex justify-between items-center">
-        {/* Logo */}
+
         <div className="text-2xl font-bold text-purple-600">
           <Link href="/">Next Movie</Link>
         </div>
 
-        {/* Navigation Links */}
+
         <nav className="hidden md:flex space-x-6">
           <Link
             href="/"
@@ -44,7 +44,7 @@ export default function Header() {
             Films
           </Link>
 
-          {/* Affiche les liens uniquement si l'utilisateur est connecté */}
+
           {status === "authenticated" && (
             <>
               <Link
@@ -61,10 +61,10 @@ export default function Header() {
               </Link>
             </>
           )}
-          {/* Ajoutez d'autres liens ici si nécessaire */}
+
         </nav>
 
-        {/* Search Bar */}
+
         <div className="flex items-center space-x-3">
           <form onSubmit={handleSearch} className="flex items-center">
             <input
@@ -82,7 +82,7 @@ export default function Header() {
             </button>
           </form>
 
-          {/* User Actions */}
+
           <div className="ml-4">
             {status === "loading" ? (
               <p>Chargement...</p>

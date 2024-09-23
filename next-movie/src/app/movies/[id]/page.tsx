@@ -67,10 +67,10 @@ export default function MovieDetailPage() {
         </div>
       )}
 
-      {/* Section des commentaires */}
+      {/* Commentaires */}
       <div className="mt-8">
         <h2 className="text-2xl font-bold mb-4">Commentaires</h2>
-        {/* Affichage de la moyenne des notes */}
+
         {averageRating !== null && (
           <p className="text-lg mt-4">
             <b>
@@ -96,7 +96,7 @@ export default function MovieDetailPage() {
         )}
       </div>
 
-      {/* Section pour laisser un commentaire */}
+
       <AddCommentForm movieId={movieId} />
     </div>
   );

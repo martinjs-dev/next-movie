@@ -92,9 +92,9 @@ export default function SignInPage() {
         </div>
 
         
-        {/* Boutons OAuth */}
+
         <div className="flex justify-between">
-          {/* Google Button */}
+
           <button
             className="w-1/3 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 rounded mx-1 flex items-center justify-center"
             onClick={() => signIn("google")}
@@ -107,7 +107,7 @@ export default function SignInPage() {
             Google
           </button>
 
-          {/* GitHub Button */}
+
           <button
             className="w-1/3 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 rounded mx-1 flex items-center justify-center"
             onClick={() => signIn("github")}
@@ -120,7 +120,7 @@ export default function SignInPage() {
             GitHub
           </button>
 
-          {/* Facebook Button */}
+
           <button
             className="w-1/3 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 rounded mx-1 flex items-center justify-center"
             onClick={() => signIn("facebook")}

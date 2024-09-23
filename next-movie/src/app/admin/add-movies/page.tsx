@@ -111,7 +111,7 @@ export default function MovieSearch() {
 
   return (
     <div className="p-4">
-      {/* Formulaire de recherche avec Discover et Genres */}
+
       <form
         onSubmit={handleSearch}
         className="flex justify-between items-center"
@@ -129,7 +129,7 @@ export default function MovieSearch() {
           </button>
         </div>
         <div className="">
-        {/* Select pour Discover */}
+
         <select
           value={discover}
           onChange={handleDiscoverChange}
@@ -142,7 +142,7 @@ export default function MovieSearch() {
           <option value="upcoming">Upcoming</option>
         </select>
 
-        {/* Select pour Genres */}
+
         <select
           value={selectedGenre}
           onChange={handleGenreChange}

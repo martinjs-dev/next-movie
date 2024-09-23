@@ -148,7 +148,7 @@ export default function AdminMovies() {
             </tbody>
           </table>
 
-          {/* Pagination */}
+
           <div className="flex justify-between items-center mt-12">
             <button
               disabled={currentPage === 1}

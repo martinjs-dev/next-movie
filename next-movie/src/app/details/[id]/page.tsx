@@ -172,7 +172,7 @@ const MovieDetails = () => {
                     <div>Language: {movie?.original_language?.toLocaleUpperCase()}</div>
                     <div>Release: {movie?.release_date}</div>
                     <div>Runtime: {movie?.runtime} MIN.</div>
-                   {/* je dois placer une etoile pour le vote  */}
+                    
                     <div>Rating: {movie?.vote_average} ⭐ </div> 
 
                 </div>
@@ -194,7 +194,7 @@ const MovieDetails = () => {
 
         </div>
 
-        {/* ReactPlayer */}
+
 
         <div 
         className={`absolute top-3 inset-x-[7%] md:inset-x-[13%] rounded overflow-hidden transition duration-1000 ${showPlayer ? "opacity-100 z-50 ": "opacity-0 -z-10"}`}

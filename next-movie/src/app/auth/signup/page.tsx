@@ -204,9 +204,9 @@ export default function SignUpPage() {
           <div className="w-full border-t border-gray-300"></div>
         </div>
 
-        {/* Boutons OAuth */}
+        {/* OAuth */}
         <div className="flex justify-between">
-          {/* Google Button */}
+          {/* Google */}
           <button
             className="w-1/3 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 rounded mx-1 flex items-center justify-center"
             onClick={() => handleOAuthLogin("google")}
@@ -219,7 +219,7 @@ export default function SignUpPage() {
             Google
           </button>
 
-          {/* GitHub Button */}
+          {/* GitHub  */}
           <button
             className="w-1/3 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 rounded mx-1 flex items-center justify-center"
             onClick={() => handleOAuthLogin("github")}
@@ -232,7 +232,7 @@ export default function SignUpPage() {
             GitHub
           </button>
 
-          {/* Facebook Button */}
+          {/* Facebook */}
           <button
             className="w-1/3 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 rounded mx-1 flex items-center justify-center"
             onClick={() => handleOAuthLogin("facebook")}

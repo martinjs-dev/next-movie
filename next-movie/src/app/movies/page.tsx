@@ -106,7 +106,7 @@ export default function HomePage() {
             <h2 className="text-lg font-bold text-white mt-2">{movie.title}</h2>
             <p className="text-gray-400">{movie.release_date}</p>
 
-            {/* Icône cœur */}
+            {/* Icône fav*/}
             <div
               className="absolute top-2 right-2 cursor-pointer"
               onClick={() => toggleFavorite(movie.id)}
@@ -147,7 +147,7 @@ export default function HomePage() {
         ))}
       </div>
 
-      {/* Pagination */}
+
       <div className="flex justify-between items-center mt-6">
         <button
           onClick={() => handlePageChange("prev")}
