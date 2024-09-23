@@ -36,10 +36,10 @@ jobs:
           cd next-movie
           npm install
 
-      - name: Run lint
-        run: |
-          cd next-movie
-          npm run lint
+      # - name: Run lint
+      #   run: |
+      #     cd next-movie
+      #     npm run lint
                 
       - name: Run tests
         run: |

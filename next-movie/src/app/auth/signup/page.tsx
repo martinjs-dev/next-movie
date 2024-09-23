@@ -14,7 +14,6 @@ export default function SignUpPage() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const router = useRouter();
-
   const { data: session, status } = useSession();
 
   useEffect(() => {
@@ -78,6 +77,8 @@ export default function SignUpPage() {
       body: JSON.stringify({ name, email, password }),
     });
 
+    console.log(res)
+
     const data = await res.json();
 
     if (res.ok) {
@@ -109,10 +110,6 @@ export default function SignUpPage() {
 
   return (
     <div className="flex items-center justify-center min-h-screen p-6 bg-gray-100">
-      <>
-        <button>Vérifier l&apos;e-mail</button>
-        <ToastContainer />
-      </>
       <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-8">
         <h2 className="text-3xl font-bold mb-6 text-purple-600">
           Créer un compte
