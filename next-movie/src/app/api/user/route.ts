@@ -58,7 +58,6 @@ export const DELETE = async (req: Request, { params }: { params: { userId: strin
 
 
 export const GET = async (req: Request, { params }: { params: { userId: string } }) => {
-  console.log('----------errrrrrrrrrrrrrr')
   const session = await getServerSession(authOptions);
   if (!session || !session.user.isAdmin) {
     return NextResponse.json({ error: 'Accès non autorisé' }, { status: 401 });

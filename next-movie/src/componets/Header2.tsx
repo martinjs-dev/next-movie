@@ -23,7 +23,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-gray-800 text-white py-4 shadow-lg">
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-2xl font-bold text-purple-600">
-          <Link href="/">Next Movie</Link>
+          <Link href="/"><b>NEXT MOVIE</b></Link>
         </div>
 
         <nav className="hidden md:flex space-x-6">

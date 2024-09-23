@@ -47,12 +47,13 @@ export default function MovieSearch() {
     const fetchExistingMovies = async () => {
       const res = await fetch('/api/movies?all=true');
       const data = await res.json();
-      console.log(data.movies)
+      // console.log(data.movies)
       const existingMovieIds = data.movies.map((movie: any) => movie.movieId);
       setExistingMovies(existingMovieIds);
     };
     fetchExistingMovies();
   }, []);
+
 
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -108,6 +109,7 @@ export default function MovieSearch() {
     }
   };
 
+  console.log(movies)
   return (
     <div className="p-4">
 

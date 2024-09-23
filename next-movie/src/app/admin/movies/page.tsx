@@ -9,8 +9,8 @@ import { useSession } from 'next-auth/react';
 export default function AdminMovies() {
   const [movies, setMovies] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1); // Page actuelle pour la pagination
-  const [totalPages, setTotalPages] = useState(1); // Nombre total de pages pour la pagination
+  const [currentPage, setCurrentPage] = useState(1); 
+  const [totalPages, setTotalPages] = useState(1); 
   const { data: session, status } = useSession();
   const router = useRouter();
 
@@ -43,7 +43,7 @@ export default function AdminMovies() {
 
             return {
               ...movieRes.data,
-              commentCount: commentsData.length, // Nombre de commentaires
+              commentCount: commentsData.length,
             };
           })
         );
