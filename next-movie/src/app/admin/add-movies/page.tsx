@@ -32,7 +32,7 @@ export default function MovieSearch() {
   }, [session, status, router]);
 
 
-  // Genres depuis TMDB
+  // Genres TMDB
   useEffect(() => {
     const fetchGenres = async () => {
       const response = await axios.get(`${BASE_URL}/genre/movie/list`, {
@@ -43,7 +43,6 @@ export default function MovieSearch() {
     fetchGenres();
   }, []);
 
-  // Films dans la base de données
   useEffect(() => {
     const fetchExistingMovies = async () => {
       const res = await fetch('/api/movies?all=true');
@@ -203,7 +202,7 @@ export default function MovieSearch() {
                     <td className="p-2 text-left">
                       <button
                         className={`p-2 bg-purple-600 text-white rounded ${
-                      isMoviePresent ? 'bg-gray-400' : ''
+                      isMoviePresent ? 'bg-gray-300' : ''
                     }`}
                         onClick={(e) => {
                           e.stopPropagation();

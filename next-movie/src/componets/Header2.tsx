@@ -24,11 +24,9 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-gray-800 text-white py-4 shadow-lg">
       <div className="container mx-auto flex justify-between items-center">
-
         <div className="text-2xl font-bold text-purple-600">
           <Link href="/">Next Movie</Link>
         </div>
-
 
         <nav className="hidden md:flex space-x-6">
           <Link
@@ -37,13 +35,12 @@ export default function Header() {
           >
             Accueil
           </Link>
-          <Link
+          {/* <Link
             href="/movies"
             className="hover:text-purple-600 transition duration-300"
           >
             Films
-          </Link>
-
+          </Link> */}
 
           {status === "authenticated" && (
             <>
@@ -62,8 +59,23 @@ export default function Header() {
             </>
           )}
 
+          {session && session.user.isAdmin && (
+            <>
+              <Link
+                href="/admin/add-movies"
+                className="hover:text-purple-600 transition duration-300"
+              >
+                Ajouter
+              </Link>
+              <Link
+                href="/admin/movies"
+                className="hover:text-purple-600 transition duration-300"
+              >
+                Gérer
+              </Link>
+            </>
+          )}
         </nav>
-
 
         <div className="flex items-center space-x-3">
           <form onSubmit={handleSearch} className="flex items-center">
@@ -81,7 +93,6 @@ export default function Header() {
               <AiOutlineSearch size={20} />
             </button>
           </form>
-
 
           <div className="ml-4">
             {status === "loading" ? (

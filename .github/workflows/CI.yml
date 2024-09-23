@@ -45,6 +45,7 @@ jobs:
         run: |
           cd next-movie
           npm test 
+          npm upgrade
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
