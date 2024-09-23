@@ -40,7 +40,7 @@ export const authOptions: AuthOptions = {
           throw new Error("Mot de passe incorrect")
         }
 
-        return { id: user._id, email: user.email, name: user.name }
+        return { id: user._id, email: user.email, name: user.name, isAdmin: user.isAdmin  }
       },
     }),
   ],
@@ -52,13 +52,12 @@ export const authOptions: AuthOptions = {
     error: "/auth/error",
   },
   callbacks: {
-    // Enregistre l'utilisateur dans la base de données lors de la première connexion
     async signIn({ user, account, profile }) {
       await dbConnect()
 
-      console.log("OAuth User:", user)      // Vérifie ce qui est renvoyé ici
-      console.log("OAuth Account:", account) // Vérifie ce qui est renvoyé ici
-      console.log("OAuth Profile:", profile) // Vérifie ce qui est renvoyé ici
+      console.log("OAuth User:", user)      
+      console.log("OAuth Account:", account) 
+      console.log("OAuth Profile:", profile)
   
 
       const existingUser = await User.findOne({ email: user.email })
@@ -73,16 +72,19 @@ export const authOptions: AuthOptions = {
       return true 
     },
 
-    async jwt({ token, user }) {
+    async jwt({ token, user, account, profile  }) {
       if (user) {
-        token.id = user.id
+        const dbUser = await User.findOne({ email: user.email });
+        token.id = dbUser._id;
+        token.isAdmin = dbUser.isAdmin;
       }
       return token
     },
 
     async session({ session, token }) {
       if (session.user) {
-        session.user.id = token.id as string
+        session.user.id = token.id as string;
+        session.user.isAdmin = token.isAdmin as boolean;
       }
       return session
     },

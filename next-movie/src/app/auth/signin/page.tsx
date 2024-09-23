@@ -1,7 +1,7 @@
 'use client'
 
-import { signIn } from 'next-auth/react'
-import { FormEvent, useState } from 'react'
+import { signIn, useSession } from 'next-auth/react'
+import { FormEvent, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 
 export default function SignInPage() {
@@ -9,6 +9,19 @@ export default function SignInPage() {
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
   const router = useRouter()
+
+  const { data: session, status } = useSession();
+
+  useEffect(() => {
+    if (status === 'authenticated') {
+      router.push('/');
+    }
+  }, [session, status, router]);
+
+  if (status === 'loading') {
+    return <p>Chargement...</p>;
+  }
+
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
@@ -22,7 +35,7 @@ export default function SignInPage() {
     if (res?.error) {
       setErrorMessage(res.error)
     } else {
-      router.push('/dashboard')
+      router.push('/')
     }
   }
 

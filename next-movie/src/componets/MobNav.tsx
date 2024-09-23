@@ -79,7 +79,7 @@ const MobNav = ({input , setInput, handleSubmit}: propsType) => {
         href="/discover/now_playing"
         onClick={() => setIsOpen(false)}>
             <div className='sidebarTitle text-[28px] text-center'>
-                Marinosverse
+                Next Movie
             </div>
         </Link>
 
