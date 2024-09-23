@@ -5,6 +5,7 @@ declare module "next-auth" {
     user: {
       id: string;
       isAdmin: boolean;
+      favMovies: string[];
     } & DefaultSession["user"]
   }
 
@@ -12,11 +13,13 @@ declare module "next-auth" {
   interface User {
     id: string;
     isAdmin: boolean;
+    favMovies: string[];
   }
 
   interface JWT {
     id: string;
     isAdmin: boolean;
+    favMovies: string[];
   }
 
 }

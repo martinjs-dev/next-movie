@@ -1,18 +1,18 @@
 // src/componets/Header.tsx
 
-'use client';
+"use client";
 
-import { signIn, signOut, useSession } from 'next-auth/react';
-import Link from 'next/link';
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { AiOutlineSearch } from 'react-icons/ai';
-import { FaUserCircle } from 'react-icons/fa';
+import { signIn, signOut, useSession } from "next-auth/react";
+import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { AiOutlineSearch } from "react-icons/ai";
+import { FaUserCircle } from "react-icons/fa";
 
 export default function Header() {
   const { data: session, status } = useSession();
   const router = useRouter();
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,25 +26,42 @@ export default function Header() {
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="text-2xl font-bold text-purple-600">
-          <Link href="/">
-            Next Movie
-          </Link>
+          <Link href="/">Next Movie</Link>
         </div>
 
         {/* Navigation Links */}
         <nav className="hidden md:flex space-x-6">
-          <Link href="/" className="hover:text-purple-600 transition duration-300">
+          <Link
+            href="/"
+            className="hover:text-purple-600 transition duration-300"
+          >
             Accueil
           </Link>
-          <Link href="/movies" className="hover:text-purple-600 transition duration-300">
+          <Link
+            href="/movies"
+            className="hover:text-purple-600 transition duration-300"
+          >
             Films
           </Link>
-          <Link href="/about" className="hover:text-purple-600 transition duration-300">
-            À propos
-          </Link>
-          <Link href="/contact" className="hover:text-purple-600 transition duration-300">
-            Contact
-          </Link>
+
+          {/* Affiche les liens uniquement si l'utilisateur est connecté */}
+          {status === "authenticated" && (
+            <>
+              <Link
+                href="/user/my-favorites"
+                className="hover:text-purple-600 transition duration-300"
+              >
+                Mes Favoris
+              </Link>
+              <Link
+                href="/user/profile"
+                className="hover:text-purple-600 transition duration-300"
+              >
+                Profil
+              </Link>
+            </>
+          )}
+          {/* Ajoutez d'autres liens ici si nécessaire */}
         </nav>
 
         {/* Search Bar */}
@@ -57,14 +74,17 @@ export default function Header() {
               placeholder="Rechercher..."
               className="px-3 py-2 rounded-md bg-gray-700 text-white outline-none"
             />
-            <button type="submit" className="ml-2 p-2 rounded-md bg-purple-600 hover:bg-purple-800">
+            <button
+              type="submit"
+              className="ml-2 p-2 rounded-md bg-purple-600 hover:bg-purple-800"
+            >
               <AiOutlineSearch size={20} />
             </button>
           </form>
 
           {/* User Actions */}
           <div className="ml-4">
-            {status === 'loading' ? (
+            {status === "loading" ? (
               <p>Chargement...</p>
             ) : session ? (
               <div className="flex items-center space-x-3">

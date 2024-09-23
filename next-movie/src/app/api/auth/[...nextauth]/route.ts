@@ -40,7 +40,7 @@ export const authOptions: AuthOptions = {
           throw new Error("Mot de passe incorrect")
         }
 
-        return { id: user._id, email: user.email, name: user.name, isAdmin: user.isAdmin  }
+        return { id: user._id, email: user.email, name: user.name, isAdmin: user.isAdmin, favMovies: user.favMovies || [],  }
       },
     }),
   ],
@@ -77,6 +77,7 @@ export const authOptions: AuthOptions = {
         const dbUser = await User.findOne({ email: user.email });
         token.id = dbUser._id;
         token.isAdmin = dbUser.isAdmin;
+        token.favMovies = (user.favMovies as string[]) || [];
       }
       return token
     },
@@ -85,6 +86,7 @@ export const authOptions: AuthOptions = {
       if (session.user) {
         session.user.id = token.id as string;
         session.user.isAdmin = token.isAdmin as boolean;
+        session.user.favMovies = (token.favMovies as string[]) || [];
       }
       return session
     },
