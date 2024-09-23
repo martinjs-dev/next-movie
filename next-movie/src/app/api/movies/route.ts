@@ -45,23 +45,35 @@ export const GET = async (req: Request) => {
     await dbConnect();
 
     const url = new URL(req.url);
-    const page = parseInt(url.searchParams.get('page') || '1'); 
+    const all = url.searchParams.get('all'); 
+    const page = parseInt(url.searchParams.get('page') || '1', 10); 
     const limit = 20; 
 
-    // Pagination
+    // Si 'all=true', on renvoie tous les films sans pagination
+    if (all === 'true') {
+      const allMovies = await Movie.find({});
+      return NextResponse.json({
+        movies: allMovies.map((movie) => ({ movieId: movie.movieId })),
+      });
+    }
+
+    // Sinon, renvoie les films avec pagination
     const totalMovies = await Movie.countDocuments();
     const totalPages = Math.ceil(totalMovies / limit);
     const movies = await Movie.find({})
       .skip((page - 1) * limit) 
-      .limit(limit); 
+      .limit(limit);
 
     return NextResponse.json({
-      movies: movies.map(movie => ({ movieId: movie.movieId })),
+      movies: movies.map((movie) => ({ movieId: movie.movieId })),
       totalPages,
     });
   } catch (error) {
     console.error('Erreur lors de la récupération des films :', error);
-    return NextResponse.json({ error: 'Erreur lors de la récupération des films' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Erreur lors de la récupération des films' },
+      { status: 500 }
+    );
   }
 };
 

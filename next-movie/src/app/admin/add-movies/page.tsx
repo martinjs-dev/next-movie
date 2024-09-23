@@ -46,7 +46,7 @@ export default function MovieSearch() {
   // Films dans la base de données
   useEffect(() => {
     const fetchExistingMovies = async () => {
-      const res = await fetch('/api/movies');
+      const res = await fetch('/api/movies?all=true');
       const data = await res.json();
       console.log(data.movies)
       const existingMovieIds = data.movies.map((movie: any) => movie.movieId);
