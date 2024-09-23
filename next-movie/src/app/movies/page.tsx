@@ -54,11 +54,11 @@ export default function HomePage() {
 
     let updatedFavMovies;
     if (favMovies.includes(movieId)) {
-      // Retirer des favoris
+      // Retirer favoris
       updatedFavMovies = favMovies.filter((id) => id !== movieId);
     //   await update();
     } else {
-      // Ajouter aux favoris
+      // Ajouter favoris
       updatedFavMovies = [...favMovies, movieId];
     //   await update();
     }

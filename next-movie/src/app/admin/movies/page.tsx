@@ -14,7 +14,6 @@ export default function AdminMovies() {
   const { data: session, status } = useSession();
   const router = useRouter();
 
-  // Redirection si non connecté ou si l'utilisateur n'est pas admin
   useEffect(() => {
     if (status === 'unauthenticated') {
       router.push('/auth/signin');
@@ -25,7 +24,6 @@ export default function AdminMovies() {
   
 
 
-  // Fetch les films stockés dans la base de données et leurs détails via TMDb
   useEffect(() => {
     const fetchMovies = async (page: number) => {
       try {

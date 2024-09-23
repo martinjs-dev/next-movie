@@ -9,7 +9,7 @@ export default function MovieDetailPage() {
   const params = useParams();
   const movieId = Array.isArray(params.id) ? params.id[0] : params.id;
   const [movie, setMovie] = useState<any>(null);
-  const [comments, setComments] = useState<any[]>([]); // Initialisation à un tableau vide
+  const [comments, setComments] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [averageRating, setAverageRating] = useState<number | null>(null);
 
@@ -25,7 +25,7 @@ export default function MovieDetailPage() {
       const data = await res.json();
       setComments(data || []);
 
-      // Moyenne des notes
+      // Note
       if (data && data.length > 0) {
         const totalRating = data.reduce(
           (acc: number, comment: any) => acc + comment.rating,

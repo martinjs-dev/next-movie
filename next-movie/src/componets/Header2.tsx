@@ -1,5 +1,3 @@
-// src/componets/Header.tsx
-
 "use client";
 
 import { signIn, signOut, useSession } from "next-auth/react";
@@ -72,6 +70,12 @@ export default function Header() {
                 className="hover:text-purple-600 transition duration-300"
               >
                 Gérer
+              </Link>
+              <Link
+                href="/admin/user"
+                className="hover:text-purple-600 transition duration-300"
+              >
+                Users
               </Link>
             </>
           )}

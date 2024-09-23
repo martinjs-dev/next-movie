@@ -66,7 +66,6 @@ const MoviePage = ({ movie }) => {
   );
 };
 
-// Fonction pour récupérer les données du film (SSR)
 export async function getServerSideProps(context) {
   await dbConnect();
 

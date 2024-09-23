@@ -49,7 +49,7 @@ export const GET = async (req: Request) => {
     const page = parseInt(url.searchParams.get('page') || '1', 10); 
     const limit = 20; 
 
-    // Si 'all=true', on renvoie tous les films sans pagination
+    // Tous les films
     if (all === 'true') {
       const allMovies = await Movie.find({});
       return NextResponse.json({
@@ -57,7 +57,7 @@ export const GET = async (req: Request) => {
       });
     }
 
-    // Sinon, renvoie les films avec pagination
+    // Films avec pagination
     const totalMovies = await Movie.countDocuments();
     const totalPages = Math.ceil(totalMovies / limit);
     const movies = await Movie.find({})

@@ -33,10 +33,10 @@ export default function ForgotPasswordPage() {
 
     if (res.ok) {
       setSuccessMessage('Un lien de réinitialisation du mot de passe vous a été envoyé par email.')
-      setErrorMessage('')  // Efface l'éventuel message d'erreur
+      setErrorMessage('') 
     } else {
       setErrorMessage(data.error || 'Une erreur s\'est produite lors de la demande de réinitialisation.')
-      setSuccessMessage('')  // Efface l'éventuel message de succès
+      setSuccessMessage('')
     }
   }
 

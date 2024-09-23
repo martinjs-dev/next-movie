@@ -1,11 +1,11 @@
-'use client' // Active le rendu côté client
+'use client'
 
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 export default function VerifyEmailPage() {
   const searchParams = useSearchParams()
-  const token = searchParams.get('token') // Récupérer le token depuis les paramètres de l'URL
+  const token = searchParams.get('token') 
   const [message, setMessage] = useState('')
 
   useEffect(() => {

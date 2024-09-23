@@ -9,18 +9,16 @@ export default function ResetPasswordPage() {
   const [errorMessage, setErrorMessage] = useState('')
   const router = useRouter()
   const searchParams = useSearchParams()
-  const token = searchParams.get('token') // Récupérer le token depuis les paramètres de l'URL
+  const token = searchParams.get('token') 
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
 
-    // Validation des mots de passe (min 6 caractères)
     if (newPassword.length < 6 || newPassword.length > 32) {
       setErrorMessage('Le mot de passe doit contenir entre 6 et 32 caractères.')
       return
     }
 
-    // Vérification si les deux mots de passe sont identiques
     if (newPassword !== confirmPassword) {
       setErrorMessage('Les mots de passe ne correspondent pas.')
       return
@@ -38,7 +36,7 @@ export default function ResetPasswordPage() {
 
     if (res.ok) {
       alert('Mot de passe réinitialisé avec succès.')
-      router.push('/auth/signin')  // Redirection vers la page de connexion après succès
+      router.push('/auth/signin') 
     } else {
       setErrorMessage(data.error || 'Erreur lors de la réinitialisation du mot de passe.')
     }

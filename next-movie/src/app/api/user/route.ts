@@ -5,7 +5,6 @@ import bcrypt from 'bcryptjs';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '../auth/[...nextauth]/route';
 
-// PUT - Mettre à jour un utilisateur
 export const PUT = async (req: Request, { params }: { params: { userId: string } }) => {
   const session = await getServerSession(authOptions);
   if (!session || !session.user.isAdmin) {
@@ -36,7 +35,6 @@ export const PUT = async (req: Request, { params }: { params: { userId: string }
   }
 };
 
-// DELETE - Supprimer un utilisateur
 export const DELETE = async (req: Request, { params }: { params: { userId: string } }) => {
   const session = await getServerSession(authOptions);
   if (!session || !session.user.isAdmin) {
@@ -58,8 +56,9 @@ export const DELETE = async (req: Request, { params }: { params: { userId: strin
   }
 };
 
-// GET - Récupérer un utilisateur (pour affichage avant modification)
+
 export const GET = async (req: Request, { params }: { params: { userId: string } }) => {
+  console.log('----------errrrrrrrrrrrrrr')
   const session = await getServerSession(authOptions);
   if (!session || !session.user.isAdmin) {
     return NextResponse.json({ error: 'Accès non autorisé' }, { status: 401 });
