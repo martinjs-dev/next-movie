@@ -53,7 +53,8 @@ const Search = () => {
     })
      
 
-  }, [params.id, searchParams.get("page")]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [params.id, searchParams.get("page"), searchParams]);
   
 
   const handlePageChange = (button:string) => {

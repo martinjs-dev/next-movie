@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Navbar from "@/componets/Navbar";
-import Sidebar from "@/componets/Sidebar";
+// import Navbar from "@/componets/Navbar";
+// import Sidebar from "@/componets/Sidebar";
 import ClientProvider from "./ClientProvider";
 import Header from "@/componets/Header2";
 import Footer from "@/componets/footer";

@@ -12,7 +12,7 @@ export default function HomePage() {
   const [totalPages, setTotalPages] = useState(1); 
   const [favMovies, setFavMovies] = useState<string[]>([]); 
   const router = useRouter();
-  const { data: session, status, update } = useSession();
+  const { data: session, status} = useSession();
 
   useEffect(() => {
     const fetchMovies = async () => {

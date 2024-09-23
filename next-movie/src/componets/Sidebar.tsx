@@ -36,7 +36,7 @@ console.log(process.env.NEXT_PUBLIC_TMDB_API_KEY)
       }
       const genre = "" + params.id
       setSelectedGenre(genre)
-    }, [params.id]);
+    }, [params.id, searchParams]);
 
   return (<div className='bg-primary px-10 max-h-[calc(100vh-77px)] pb-6 overflow-y-scroll scollbar-thin scrollbar-thumb-[#22222a]
   scrollbar-track-primary hidden sm:block'>

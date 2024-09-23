@@ -72,7 +72,7 @@ export const authOptions: AuthOptions = {
       return true 
     },
 
-    async jwt({ token, user, account, profile  }) {
+    async jwt({ token, user }) {
       if (user) {
         const dbUser = await User.findOne({ email: user.email });
         token.id = dbUser._id;

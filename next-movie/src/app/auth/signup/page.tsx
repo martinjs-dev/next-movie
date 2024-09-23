@@ -3,7 +3,7 @@
 import { useState, FormEvent, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { signIn, useSession } from "next-auth/react";
-import { ToastContainer, toast } from "react-toastify";
+import {  toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
 
@@ -91,14 +91,14 @@ export default function SignUpPage() {
         router.push("/auth/signin");
       });
     } else {
-      Swal.fire({
-        title: "Succès",
-        text: "Votre adresse e-mail a été vérifiée avec succès.",
-        icon: "success",
-        confirmButtonText: "OK",
-      }).then(() => {
-        router.push("/auth/signin");
-      });
+      // Swal.fire({
+      //   title: "Succès",
+      //   text: "Votre adresse e-mail a été vérifiée avec succès.",
+      //   icon: "success",
+      //   confirmButtonText: "OK",
+      // }).then(() => {
+      //   router.push("/auth/signin");
+      // });
       toast.error("Votre adresse e-mail a été vérifiée avec succès.");
       setErrorMessage(data.error || "Erreur lors de l’inscription.");
     }

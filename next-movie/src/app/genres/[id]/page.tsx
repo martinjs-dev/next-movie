@@ -18,7 +18,7 @@ const Genres = () => {
   const [movies, setMovies] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
-  const [discover, setDiscover] = useState("");
+  // const [discover, setDiscover] = useState("");
 
   const mainRef = useRef<HTMLDivElement>(null);
 

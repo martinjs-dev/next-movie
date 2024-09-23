@@ -12,7 +12,7 @@ export default function EditUserPage() {
   const [password, setPassword] = useState('');
   const router = useRouter();
   const { userId } = useParams();
-
+console.log(user)
   useEffect(() => {
     const fetchUser = async () => {
       const res = await fetch(`/api/user/${userId}`);
@@ -53,7 +53,7 @@ export default function EditUserPage() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-6">Modifier l'utilisateur</h1>
+      <h1 className="text-2xl font-bold mb-6">Modifier l&lsquo;utilisateur</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="name" className="block mb-2">Nom</label>

@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { useSession, signIn } from "next-auth/react"; 
-import { useRouter } from "next/router";
+import { useSession} from "next-auth/react"; 
+// import { useRouter } from "next/router";
 
 export default function AddCommentForm({ movieId }: { movieId: string }) {
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState(5);
   const [errorMessage, setErrorMessage] = useState("");
-  const { data: session, status } = useSession(); 
+  const { data:  status } = useSession(); 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

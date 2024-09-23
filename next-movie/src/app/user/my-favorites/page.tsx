@@ -6,7 +6,7 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
 export default function MyFavoritePage() {
-  const { data: session, status, update } = useSession();
+  const { data: session, status } = useSession();
   const [favoriteMovies, setFavoriteMovies] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
