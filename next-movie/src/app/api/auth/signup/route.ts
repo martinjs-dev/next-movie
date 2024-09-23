@@ -7,11 +7,11 @@ import jwt from "jsonwebtoken"
 
 export const POST = async (req: Request) => {
   await dbConnect()
-
   const { name, email, password } = await req.json()
 
   const existingUser = await User.findOne({ email })
-  console.log(existingUser.emailVerified)
+  console.log('eeeeeeeeeeeeeeeeeeeeeee')
+
   if (existingUser) {
     if(existingUser.emailVerified){
       console.log(existingUser.emailVerified)
